@@ -11,3 +11,5 @@ Overall layout -
    Maintain a list of dates for which the floor/room has been booked. 
    If the chosen date is in the list, prompt an error saying the 
    floor/room has already been booked.
+  
+  -Will be using CSS modules for styling each floor separately.

@@ -1,4 +1,5 @@
-import "./ExpenseForm.css" ;
+import "./comp1.css" ;
+
 
 const Component = (props) => {
     // console.log('This is the second point of data flow - in the nested component.');
@@ -36,6 +37,8 @@ const Component = (props) => {
             <button type="submit" onClick={submitHandle}>Display details</button>
           </div>
         </form>
+
+        
       </div>
     ); 
   }

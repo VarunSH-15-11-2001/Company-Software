@@ -2,7 +2,7 @@ import React from "react";
 
 function Room101(props) {
   return (
-    <div className="Room101">
+    <div className={props.className}>
       <h1>Room {props.bedNum}</h1>
     </div>
   );

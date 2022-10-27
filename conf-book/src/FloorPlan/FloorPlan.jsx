@@ -14,9 +14,9 @@ function FloorPlan(props) {
         <Room105 ></Room105>
       </div>
       <div id="row-2">
-        <Room101 className="Room101" bedNum={102} />
+        <Room101 className = "Room102" bedNum={102} />
         <Bath gender="Men's" />
-        <Room101 className="Room101" bedNum={103} />
+        <Room101 className="Room103" bedNum={103} />
       </div>
     </div>
   );

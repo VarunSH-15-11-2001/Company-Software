@@ -4,9 +4,19 @@
 
 .floor2 td{
     border: 5px solid blue;
+    width: 70px;
+    padding: 100px;
 }
 
 
 .gren{
     background-color: cadetblue;
+}
+
+.available {
+    color: green;
+}
+
+.notAvailable {
+    color: red;
 }

@@ -10,6 +10,6 @@ const Indx = () => {
       <FloorPlan />
     </div>
   );
-}
+};
 
 export default Indx;

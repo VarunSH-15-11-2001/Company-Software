@@ -1,22 +1,21 @@
-.floor1 td{
-    border: 5px solid black;
+.floor1 td {
+  border: 5px solid black;
 }
 
-.floor2 td{
-    border: 5px solid blue;
-    width: 70px;
-    padding: 100px;
+.floor2 td {
+  border: 5px solid blue;
+  width: 70px;
+  padding: 100px;
 }
 
-
-.gren{
-    background-color: cadetblue;
+.gren {
+  background-color: cadetblue;
 }
 
 .available {
-    color: green;
+  color: green;
 }
 
 .notAvailable {
-    color: red;
+  color: red;
 }

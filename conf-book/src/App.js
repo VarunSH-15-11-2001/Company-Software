@@ -9,11 +9,11 @@ import info from "./FloorPlan/info.js";
 
 function App() {
   // console.log('This is where things begin - in the main app component');
-
+  
   return (
     <div>
       <h1>Temporay header</h1>
-      <Booking avail={info}></Booking>
+      {/* <Booking avail={info}></Booking> */}
       <Component name="hello"></Component>
       <Floor />
     </div>

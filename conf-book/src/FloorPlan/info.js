@@ -1,3 +1,3 @@
-const dbms = "11010";
+const dbms = "10000";
 
 export default dbms;

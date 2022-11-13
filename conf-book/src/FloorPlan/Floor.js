@@ -13,20 +13,6 @@ const Floor = (props) => {
 
   return (
     <div>
-      {/* <table className={styles}>
-                <tr>
-                    <td>Room 1</td>
-                </tr>
-                <tr>
-                    <td> Temp</td>
-                    <td> Temp</td>
-                </tr>
-                <tr>
-                    <td>Temp</td>
-                    <td>Temp</td>
-                </tr>
-            </table> */}
-
       <Indx />
     </div>
   );

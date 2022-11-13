@@ -35,9 +35,14 @@ function FloorPlan(props) {
         <Room104 avail={info[3]} />
         <Room105 avail={info[4]}></Room105>
       </div>
-      
+      <div id="row-2">
+        <Room101 className="Room101" bedNum={102} avail={info[1]} />
+        <Bath gender="Men's" />
+        <Room101 className="Room101" bedNum={103} avail={info[2]} />
+      </div>
     </div>  
   );
 }
 
 export default FloorPlan;
+

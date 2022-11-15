@@ -12,22 +12,29 @@ rooms = ['01','02','03','04']
 
 inpFile = 'bookable.json'
 
+new_result = 'info.csv'
+
 def useResult(new_result):
     return new_result
 
 def removeRoom(room_selectbox, new_result):
-    new_result.append(room_selectbox)
-    print("after booking this room -> " + room_selectbox + "the new_result is -> ", new_result)
+    # new_result.append(room_selectbox)
+    # print("after booking this room -> " + room_selectbox + "the new_result is -> ", new_result)
+    with open(new_result, 'a+') as openFile:
+        openFile.seek(0)
+        if room_selectbox not in openFile.read():
+            openFile.seek(0,2)
+            openFile.write(room_selectbox)
+            openFile.write("\n")
+        else:
+            st.warning('The selected room has already been booked!')
     renderc2(new_result)
 
 def renderc2(new_result):
-    for i in useResult(new_result):
-        c2.write(i+" was booked\n") 
-
-
-# def produceResult(result,room_selectbox):
-#     room_selectbox = c1.selectbox('Select which room', result)
-#     return room_selectbox
+    with open(new_result, 'r') as f:
+        c2.write(f.read())
+    # for i in useResult(new_result):
+    #     c2.write(i+" was booked\n")
 
 room_details_size = [
     'The size of this room is 10000 sq. feet. ',
@@ -72,18 +79,13 @@ elif (room_selectbox in ['104','204','304','404']):
     if c1.checkbox('Room details'):
         room_details_size[3]+room_details_parts[1]
 
-new_result = []
-
 def createbutton():
     butt = st.button('Book Room ' + room_selectbox)
     if butt:
         # removeRoom(room_selectbox,useResult(new_result))
-        print(new_result)
-        removeRoom(room_selectbox,useResult(new_result))
+        removeRoom(room_selectbox,new_result)
+        
 
-booked = []
-    
 
 createbutton()
-
 c2.write('The booked details will come here')

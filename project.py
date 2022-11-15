@@ -15,19 +15,16 @@ inpFile = 'bookable.json'
 
 new_result = 'info.csv'
 
-image1 = Image.open('/Users/varunsh/Desktop/imag1.png')
-image2 = Image.open('/Users/varunsh/Desktop/imag2.png')
-image3 = Image.open('/Users/varunsh/Desktop/imag3.png')
-image4 = Image.open('/Users/varunsh/Desktop/imag4.png')
-
+image1 = Image.open('imag1.png')
+image2 = Image.open('imag2.png')
+image3 = Image.open('imag3.png')
+image4 = Image.open('imag4.png')
 
 with st.container():
-    with st.checkbox('View rooms'):
         i1, i2 = st.columns(2)
         with i1:
             st.image(image1, caption="Room 101", width=600)
             st.image(image3, caption="Room 103", width=600)
-
         with i2:
             st.image(image2, caption="Room 102",width=600)
             st.image(image4, caption="Room 104", width=600)
@@ -36,14 +33,13 @@ with st.container():
 def useResult(new_result):
     return new_result
 
-def removeRoom(room_selectbox, new_result):
-    # new_result.append(room_selectbox)
-    # print("after booking this room -> " + room_selectbox + "the new_result is -> ", new_result)
+def removeRoom(room_selectbox,start_time,end_time,dait,new_result):
     with open(new_result, 'a+') as openFile:
         openFile.seek(0)
-        if room_selectbox not in openFile.read():
+        message = "Room" + room_selectbox + " booked between " + str(start_time) + " and " + str(end_time) + " on " + str(dait) + "\n"
+        if message not in openFile.read():
             openFile.seek(0,2)
-            openFile.write(room_selectbox)
+            openFile.write(message)
             openFile.write("\n")
         else:
             st.warning('The selected room has already been booked!')
@@ -52,6 +48,7 @@ def removeRoom(room_selectbox, new_result):
 def renderc2(new_result):
     with open(new_result, 'r') as f:
         c2.write(f.read())
+        c2.text("")
     # for i in useResult(new_result):
     #     c2.write(i+" was booked\n")
 
@@ -68,7 +65,7 @@ room_details_parts = [
 ]
 
 with st.container():
-    c1, c2 = st.columns([1,2])
+    c1, c2 = st.columns([1,1])
 
     floor_selectbox = c1.selectbox('Select which floor', floors)
 
@@ -78,7 +75,7 @@ with st.container():
 
     room_selectbox = c1.selectbox('Select which room', result)
 
-    c1.date_input(
+    useDate = c1.date_input(
         "Select date in YYYY/MM/DD format :",
         datetime.datetime.now()
     )
@@ -104,7 +101,7 @@ with st.container():
         butt = st.button('Book Room ' + room_selectbox)
         if butt:
             # removeRoom(room_selectbox,useResult(new_result))
-            removeRoom(room_selectbox,new_result)
+            removeRoom(room_selectbox,time1,time2,useDate,new_result)
             
 
 

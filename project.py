@@ -24,25 +24,6 @@ def renderc2(new_result):
     for i in useResult(new_result):
         c2.write(i+" was booked\n") 
 
-def newFn(room_selectbox, floor_selectbox, inpFile):
-    with open(inpFile, 'a') as openFile :
-        object = {room_selectbox: True}
-        json_object = json.dumps(object)
-        openFile.write(json_object)
-        # print('here->',final[floor_selectbox][room_selectbox])
-
-def anotherNewFn(room_selectbox, inpFile, booked):
-    with open(inpFile, 'r') as openFile :
-        rayquaza = json.loads(openFile)
-
-    for i in rayquaza:
-        booked.append(i)
-    
-    return booked
-
-def palkiaFn(booked):
-    for i in booked:
-        c2.write(i + " has been booked\n")
 
 # def produceResult(result,room_selectbox):
 #     room_selectbox = c1.selectbox('Select which room', result)
@@ -98,18 +79,11 @@ def createbutton():
     if butt:
         # removeRoom(room_selectbox,useResult(new_result))
         print(new_result)
-        removeRoom(room_selectbox,new_result)
+        removeRoom(room_selectbox,useResult(new_result))
 
 booked = []
-
-# def createSureButton():
-#     sureButt = st.button('Confirm bookig of room ' + room_selectbox)
-#     if sureButt:
-#         dialga = anotherNewFn(room_selectbox, inpFile, booked)
-#         palkiaFn(booked)
     
 
 createbutton()
-#createSureButton()
 
 c2.write('The booked details will come here')
